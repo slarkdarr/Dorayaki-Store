@@ -1,0 +1,95 @@
+@import url("base.css");
+.grid-container {
+    display: grid;
+    grid-template-columns: 40% auto;
+    
+    padding: 10px;
+    border-radius:15px;
+    width: 90%;
+    margin: 100px auto;
+    background-color: #D5B741;
+    box-shadow: 8px 8px 8px #181818;
+  }
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+  .image-grid {
+      display: flex;
+      justify-items: center;
+      align-items: center;
+  }
+
+
+  img {
+      width:100%;
+  }
+  @media screen and (max-width: 900px) {
+    .grid-container {
+        grid-template-columns: auto;
+    }
+  }
+  .header {
+      display:inline;
+  }
+  .description{
+      text-align:left;
+      margin-top:50px;
+  }
+  #id {
+      position:absolute;
+      text-align:right;
+      text-decoration: none;
+      right:180px;
+      border-radius:100%;
+      border: 1px solid black;
+      padding:10px;
+      background-color:yellow;
+  }
+
+  .footer {
+      margin: 0px auto;
+      margin-top:50px;
+      border-radius:15px;
+      background-color: #CFA987;
+      width:70%;
+      padding-top:20px;
+      padding-bottom:20px;
+      border: 2px solid #181818;
+  }
+  #back {
+      background-color: #D5B741;
+      box-shadow: 5px 5px 8px #181818;
+      border-radius:100%;
+      color:white;
+      text-decoration:none;
+      float: right;
+      padding:10px;
+  }
+
+  #button {
+      margin-top:10px;
+      background-color:#CFA987;
+      border-radius:15px;
+      padding:10px;
+      box-shadow: 2px 2px 8px #181818;
+      cursor: pointer;
+  }
+
+  #button:hover {
+      opacity: 0.8;
+  }
+  .button-group {
+      display: inline-block;
+  }
+
+
+#modal {
+    display: none;
+}
+.description p {
+    font-size: 20px;
+}

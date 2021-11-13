@@ -1,0 +1,13 @@
+@import url("base.css");
+.content {
+  width: 100%;
+  min-height: 62vh;
+  /* height: fit-content; */
+  margin: 0 auto;
+  padding-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+h3, p {
+    color: black;
+}

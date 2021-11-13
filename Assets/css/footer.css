@@ -1,0 +1,25 @@
+@import url(//db.onlinewebfonts.com/c/4a47df713b67c858644e569c4977de19?family=Dorayaki);
+@font-face {
+    font-family: "Dorayaki";
+    src: url("//db.onlinewebfonts.com/t/4a47df713b67c858644e569c4977de19.eot");
+    src: url("//db.onlinewebfonts.com/t/4a47df713b67c858644e569c4977de19.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/4a47df713b67c858644e569c4977de19.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/4a47df713b67c858644e569c4977de19.woff") format("woff"), url("//db.onlinewebfonts.com/t/4a47df713b67c858644e569c4977de19.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/4a47df713b67c858644e569c4977de19.svg#Dorayaki") format("svg");
+} 
+footer h3, footer p {
+    font-family: "Dorayaki" !important;
+    color: white;
+}
+h3 {
+    font-size: 2rem !important;
+}
+footer {
+    height: 100px;
+    background-color: #333D29;
+    padding: 10px;
+}
+.footer-content {
+    padding: 20px;
+    letter-spacing: 10px;
+    text-align: center;
+    height: 100%;
+    border: 1px solid black;
+}

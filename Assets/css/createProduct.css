@@ -1,0 +1,121 @@
+@import url("base.css");
+.content {
+  width: 100%;
+  min-height: 100vh;
+  /* height: fit-content; */
+  margin: 0 auto;
+  padding-top: 2rem;
+  margin-bottom: 2rem;
+  background: var(--background-grey);
+}
+
+.wrapper {
+  max-width: 800px;
+  width: 100%;
+  background: var(--background-plain);
+  padding: 1rem;
+  margin: 20px auto;
+  padding: 30px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.125);
+}
+
+.wrapper .title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--primary);
+}
+
+.wrapper .form {
+  width: 100%;
+}
+
+.wrapper .form .input-field {
+  display: flex;
+  margin-bottom: 30px;
+  align-items: center;
+}
+
+.wrapper .form .input-field label {
+  width: 125px;
+  color: #757575;
+  margin-right: 5px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.wrapper .form .input-field input,
+.wrapper .form .input-field textarea {
+  width: 100%;
+  outline: none;
+  border: 1px solid #d5dbd9;
+  -webkit-transition: 0.1s;
+  transition: all 0.2s ease;
+  font-size: 13px;
+  padding: 8px 10px;
+  border-radius: 2px;
+}
+
+.wrapper .form .input-field input:focus,
+.wrapper .form .input-field textarea:focus {
+  border: 2px solid var(--secondary);
+}
+
+.wrapper .form .input-field textarea {
+    resize: none;
+    height: 150px;
+}
+
+.wrapper .form .input-field .button {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 15px;
+    border: 0;
+    background: var(--primary);
+    cursor: pointer;
+    border-radius: 2px;
+    outline: none;
+    color: var(--text-color);
+}
+.wrapper .form .input-field .button:hover {
+    opacity: 0.9;
+}
+
+.wrapper .form .input-field:last-child {
+    margin-bottom: 0;
+}
+
+.wrapper .form .input-field .upload {
+    font-size: 14px;
+    background: white;
+    width: 100%;
+    outline: none;
+    border: 0;
+}
+
+::-webkit-file-upload-button {
+    color: white;
+    background: var(--primary);
+    padding: 15px;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    cursor: pointer;
+}
+
+::-webkit-file-upload-button:hover {
+  background-color: #4eb5f1;
+}
+
+@media (max-width: 420px) {
+    .wrapper .form .input-field {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .wrapper .form .input-field label {
+          margin-bottom: 5px;
+      }
+}

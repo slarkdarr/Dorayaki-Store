@@ -1,0 +1,23 @@
+@import url("base.css");
+.logact > table, td, th {
+    border: 1px solid black;
+  }
+  
+  .logact >  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .logact {
+    padding: 10px;
+    min-height: 76.7vh;
+  }
+  .logact h1 {
+    text-align: center;
+    margin: 10px;
+    font-size: 20px;
+  }
+
+  th {
+    background-color: coral;
+  }

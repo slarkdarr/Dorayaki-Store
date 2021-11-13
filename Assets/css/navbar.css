@@ -1,0 +1,57 @@
+@import url(//db.onlinewebfonts.com/c/4a47df713b67c858644e569c4977de19?family=Dorayaki);
+@font-face {
+  font-family: "Dorayaki";
+  src: url("//db.onlinewebfonts.com/t/4a47df713b67c858644e569c4977de19.eot");
+  src: url("//db.onlinewebfonts.com/t/4a47df713b67c858644e569c4977de19.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/4a47df713b67c858644e569c4977de19.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/4a47df713b67c858644e569c4977de19.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/4a47df713b67c858644e569c4977de19.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/4a47df713b67c858644e569c4977de19.svg#Dorayaki")
+      format("svg");
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+nav ul li {
+  float: left;
+}
+
+nav ul li a {
+  font-family: "Dorayaki";
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav li a:hover {
+  background-color: #111;
+}
+
+nav #search-button {
+  float: right;
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+}
+nav input[type="text"] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 15px;
+  border: none;
+}

@@ -1,0 +1,8 @@
+.not-found div {
+    height: 100px;
+    text-align: center;
+  }
+
+  .not-found {
+      min-height: 77vh;
+  }
