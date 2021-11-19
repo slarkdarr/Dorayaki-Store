@@ -16,6 +16,27 @@ if (isset($_COOKIE['token']) && isset($_COOKIE['userLoggedIn'])) {
     setcookie('message', 'Prohibited', time() + 3600, '/');
     header("location: /Views/Login.php");
 }
+$wsdl   = "http://localhost:9999/dorayaki?wsdl";
+$client = new SoapClient($wsdl, array('trace'=>1));  // The trace param will show you errors stack
+
+// web service input params
+$request_param = array(
+    "getDorayaki" => array(
+        "arg0"        => -1        // The ads ID
+    ) 
+);
+
+try
+{
+    // $responce_param = $client->webservice_methode_name($request_param);
+   $listDorayaki =  $client->__soapCall("getDorayaki", $request_param)->return; // Alternative way to call soap method
+   $listDorayaki = json_decode($listDorayaki, true);
+} 
+catch (Exception $e) 
+{ 
+    echo "<h2>Exception Error!</h2>"; 
+    echo $e->getMessage(); 
+}
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +66,20 @@ if (isset($_COOKIE['token']) && isset($_COOKIE['userLoggedIn'])) {
 
                 <div class="input-field">
                     <label for="name">DORAYAKI Variant</label>
-                    <input type="text" id="name" name="name" placeholder="Variant of product here .." required>
+                    <select id="name" name="name" placeholder="Variant of product here .." required>
+                        <option value=""></option>
+                        <?php
+                        if (!empty($listDorayaki)) {
+                            foreach ($listDorayaki as $row) { 
+                        ?>
+                        <option value="<?php echo $row['name'];?>" >
+                            <?php echo $row['name'];  ?>
+                        </option>
+                        <?php  
+                            }
+                        } 
+                        ?>
+                    </select>
                 </div>
 
                 <div class="input-field">
@@ -81,8 +115,6 @@ if (isset($_COOKIE['token']) && isset($_COOKIE['userLoggedIn'])) {
     <!-- Footer -->
     <?php include '../partials/footer.php'; ?>
     <!-- End Footer -->
-
-
 </body>
 
 </html>

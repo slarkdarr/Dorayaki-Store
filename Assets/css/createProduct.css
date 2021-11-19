@@ -47,7 +47,8 @@
 }
 
 .wrapper .form .input-field input,
-.wrapper .form .input-field textarea {
+.wrapper .form .input-field textarea,
+.wrapper .form .input-field select {
   width: 100%;
   outline: none;
   border: 1px solid #d5dbd9;
@@ -59,7 +60,8 @@
 }
 
 .wrapper .form .input-field input:focus,
-.wrapper .form .input-field textarea:focus {
+.wrapper .form .input-field textarea:focus,
+.wrapper .form .input-field select:focus {
   border: 2px solid var(--secondary);
 }
 
