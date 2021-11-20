@@ -4,7 +4,7 @@ services:
     # PHP service
     app:
         build: ./docker/app
-        container_name: php-app
+        container_name: php-app-tubes-2
         working_dir: /var/www/
         volumes:
             - ./:/var/www
@@ -14,7 +14,7 @@ services:
     # Nginx service
     nginx:
         image: nginx:alpine
-        container_name: php-nginx
+        container_name: php-nginx-tubes-2
         ports:
             - 8000:80
         volumes:
