@@ -55,7 +55,7 @@ if (!isset($_GET['id'])) {
             <form class="form" action="../Middlewares/changestock.php" method="POST" enctype="multipart/form-data">
                 <div class="input-field">
                     <label for="price">Amount</label>
-                    <input type="number" min='' id="available-stock" name="stock" value="<?php echo $item['stock'] ?>" required>
+                    <input type="number" min='1' id="available-stock" name="stock" required>
                 </div>
 
                 <input type="hidden" id="id" name="id" value="<?php echo $id ?>">
@@ -85,7 +85,6 @@ if (!isset($_GET['id'])) {
                 if (this.readyState == 4 && this.status == 200) {
                     const data = JSON.parse(xhttp.responseText);
                     stock.innerHTML = data.stock;
-                    avail.min = -data.stock;
                     // console.log(data.stock);
                 }
             };
