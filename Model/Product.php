@@ -250,4 +250,26 @@ class Product
             return false;
         }
     }
+
+    /**
+     * Adding new stock by name
+     * @param associative $name associative product name
+     * @param associative $stock associative product stock
+     * @return bool true if success, else false
+     */
+    public function changeStockByName($name, $addedstock)
+    {
+        echo "NAME " . $name;
+        try {
+            $query = 'UPDATE products SET stock = stock + :stock WHERE name = :name';
+            $stmt = $this->pdo->prepare($query);
+            $stmt->execute([
+                ':stock'  => $addedstock,
+                ':name' => $name
+            ]);
+            return true;
+        } catch (\PDOException $Exception) {
+            return false;
+        }
+    }
 }
