@@ -29,7 +29,7 @@ if (isset($_POST['create'])) {
 
     // Uploaded file
     $filename =  uniqid() . '_' . $_FILES['file']['name'];
-    $filename = str_replace(' ', '-', $filename );
+    $filename = str_replace(' ', '-', $filename);
     //the directory to upload to
     $targetDir = "../Storage/uploads/";
     $targetDirIndex = "Storage/uploads/";
@@ -42,14 +42,13 @@ if (isset($_POST['create'])) {
     //checking the extension of our uploaded file
 
     if (in_array($fileType, $extensions_arr)) {
-        // Add to array product
-        $newProduct['image'] = $targetDirIndex . $filename;
-        // Move file
-        move_uploaded_file($_FILES['file']['tmp_name'], $targetDir . $filename);
-
         $databasePath = '../database/' . DATABASE_NAME . '.sqlite';
         $pdo = (new SQLiteConnection())->connect($databasePath);
         if ($pdo != null) {
+            // Add to array product
+            $newProduct['image'] = $targetDirIndex . $filename;
+            // Move file
+            move_uploaded_file($_FILES['file']['tmp_name'], $targetDir . $filename);
             $Product = new Product($pdo);
             $bool = $Product->insert($newProduct);
             if ($bool) {

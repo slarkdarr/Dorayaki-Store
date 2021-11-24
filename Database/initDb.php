@@ -12,7 +12,7 @@ $tables = [
     );',
     'products' => 'DROP TABLE IF EXISTS products; CREATE TABLE IF NOT EXISTS products (
         id INTEGER PRIMARY KEY NOT NULL,
-        name TEXT NOT NULL,
+        name TEXT NOT NULL UNIQUE,
         description TEXT,
         price INTEGER NOT NULL,
         stock INTEGER NOT NULL,
