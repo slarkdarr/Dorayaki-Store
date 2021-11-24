@@ -38,7 +38,7 @@ if (isset($_POST['edit'])) {
     if ($_FILES['file']) {
         // Uploaded file
         $filename =  uniqid() . '_' . $_FILES['file']['name'];
-        $filename = str_replace($filename, ' ', '-');
+        $filename = str_replace(' ', '-', $filename );
         //the directory to upload to
         $targetDir = "../Storage/uploads/";
         $targetDirIndex = "Storage/uploads/";
