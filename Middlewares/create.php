@@ -55,7 +55,7 @@ if (isset($_POST['create'])) {
                 setcookie('message', 'New Variant ' . $newProduct['name'] . ' created successfully', time() + 3600, '/');
                 header("location: /index.php");
             } else {
-                setcookie('message', 'New Variant ' . $newProduct['name'] . ' fail to create', time() + 3600, '/');
+                setcookie('message', 'New Variant ' . $newProduct['name'] . ' fail to create maybe it is because name already exist', time() + 3600, '/');
                 header("location: /index.php");
             }
         } else {
