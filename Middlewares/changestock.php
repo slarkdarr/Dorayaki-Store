@@ -6,6 +6,25 @@ include_once('../Model/Product.php');
 include_once('../Model/History.php');
 include_once('../Model/User.php');
 include_once('../config.php');
+// Function to get the client IP address
+function get_client_ip() {
+    $ipaddress = '';
+    if (isset($_SERVER['HTTP_CLIENT_IP']))
+        $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+    else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+        $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    else if(isset($_SERVER['HTTP_X_FORWARDED']))
+        $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+    else if(isset($_SERVER['HTTP_FORWARDED_FOR']))
+        $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+    else if(isset($_SERVER['HTTP_FORWARDED']))
+        $ipaddress = $_SERVER['HTTP_FORWARDED'];
+    else if(isset($_SERVER['REMOTE_ADDR']))
+        $ipaddress = $_SERVER['REMOTE_ADDR'];
+    else
+        $ipaddress = 'UNKNOWN';
+    return $ipaddress;
+}
 
 // Validate logged in
 if (isset($_COOKIE['token']) && isset($_COOKIE['userLoggedIn'])) {
@@ -42,7 +61,7 @@ if (isset($_POST['change'])) {
                 "arg0" => $currentProduct['name'],
                 "arg1" => $changedAmount,
                 "arg2" => $users['email'],
-                "arg3" => $_SERVER['REMOTE_ADDR']
+                "arg3" => get_client_ip()
             )
         );
 

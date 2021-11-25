@@ -2,6 +2,27 @@
 include_once('../database/SQLiteConnection.php');
 include_once('../Model/Product.php');
 include_once('../config.php');
+
+// Function to get the client IP address
+function get_client_ip() {
+    $ipaddress = '';
+    if (isset($_SERVER['HTTP_CLIENT_IP']))
+        $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+    else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+        $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    else if(isset($_SERVER['HTTP_X_FORWARDED']))
+        $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+    else if(isset($_SERVER['HTTP_FORWARDED_FOR']))
+        $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+    else if(isset($_SERVER['HTTP_FORWARDED']))
+        $ipaddress = $_SERVER['HTTP_FORWARDED'];
+    else if(isset($_SERVER['REMOTE_ADDR']))
+        $ipaddress = $_SERVER['REMOTE_ADDR'];
+    else
+        $ipaddress = 'UNKNOWN';
+    return $ipaddress;
+}
+
 $databasePath = '../database/' . DATABASE_NAME . '.sqlite';
 $pdo = (new SQLiteConnection())->connect($databasePath);
 $Product = new Product($pdo);
@@ -9,7 +30,9 @@ $wsdl   = "http://localhost:9999/dorayaki?wsdl";
 $client = new SoapClient($wsdl, array('trace' => 1));  // The trace param will show you errors stack
 // web service input params
 $request_param = array(
-    "getRequestStock" => array()
+    "getRequestStock" => array(
+        "arg0" => get_client_ip()
+    )
 );
 try {
     // $responce_param = $client->webservice_methode_name($request_param);

@@ -3,6 +3,27 @@ session_start();
 ob_start();
 // Validate logged in
 include_once('../config.php');
+
+// Function to get the client IP address
+function get_client_ip() {
+    $ipaddress = '';
+    if (isset($_SERVER['HTTP_CLIENT_IP']))
+        $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+    else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+        $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    else if(isset($_SERVER['HTTP_X_FORWARDED']))
+        $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+    else if(isset($_SERVER['HTTP_FORWARDED_FOR']))
+        $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+    else if(isset($_SERVER['HTTP_FORWARDED']))
+        $ipaddress = $_SERVER['HTTP_FORWARDED'];
+    else if(isset($_SERVER['REMOTE_ADDR']))
+        $ipaddress = $_SERVER['REMOTE_ADDR'];
+    else
+        $ipaddress = 'UNKNOWN';
+    return $ipaddress;
+}
+
 if (isset($_COOKIE['token']) && isset($_COOKIE['userLoggedIn'])) {
     if ((md5($_COOKIE['userLoggedIn'] . SECRET_WORD)) !== $_COOKIE['token'] || $_SESSION['role'] !== 'admin') {
         setcookie('message', 'Prohibited', time() + 3600, '/');
@@ -23,7 +44,7 @@ $client = new SoapClient($wsdl, array('trace'=>1));  // The trace param will sho
 $request_param = array(
     "getDorayaki" => array(
         "arg0"        => -1,        // The ads ID
-        "arg1"        => $_SERVER['REMOTE_ADDR']
+        "arg1"        => get_client_ip()
     ) 
 );
 
