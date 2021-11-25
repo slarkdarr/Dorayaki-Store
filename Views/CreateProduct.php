@@ -22,7 +22,8 @@ $client = new SoapClient($wsdl, array('trace'=>1));  // The trace param will sho
 // web service input params
 $request_param = array(
     "getDorayaki" => array(
-        "arg0"        => -1        // The ads ID
+        "arg0"        => -1,        // The ads ID
+        "arg1"        => $_SERVER['REMOTE_ADDR']
     ) 
 );
 
